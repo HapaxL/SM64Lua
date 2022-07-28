@@ -38,13 +38,16 @@ function Drawing.paint()
 			Drawing.drawTextArea(Buttons[i].box[1], Buttons[i].box[2], Buttons[i].box[3], Buttons[i].box[4], value and string.format("%0".. tostring(Buttons[i].inputSize) .."d", value) or string.rep('-', Buttons[i].inputSize), Buttons[i].enabled(), Buttons[i].editing())
 		end
 	end
-	Drawing.drawAnalogStick(Drawing.Screen.Width + Drawing.WIDTH_OFFSET / 3, 210)
+	Drawing.drawAnalogStick(Drawing.Screen.Width + Drawing.WIDTH_OFFSET / 3 - 5, 213)
 	wgui.setcolor(Settings.Theme.Text)
 	wgui.setfont(10,"Arial","")
-	wgui.text(Drawing.Screen.Width + 149, 146, "Magnitude")
+	wgui.text(Drawing.Screen.Width + 101, 112, "Magnitude:")
 	Memory.Refresh()
 	Drawing.drawAngles(Drawing.Screen.Width + 16, 280)
+	Drawing.drawArctanStrainData(Drawing.Screen.Width + 158, 197)
 	Drawing.drawMiscData(Drawing.Screen.Width + 16, 310)
+	Drawing.drawRNGData(Drawing.Screen.Width + Drawing.WIDTH_OFFSET - 5, 427)
+	Drawing.drawAction(Drawing.Screen.Width + 16, 520)
 end
 
 function Drawing.drawAngles(x, y)
@@ -56,8 +59,8 @@ function Drawing.drawAngles(x, y)
 	else
 		wgui.text(x, y, "Yaw (Facing): " .. Memory.Mario.FacingYaw)
 		wgui.text(x, y + 15, "Yaw (Intended): " .. Memory.Mario.IntendedYaw)
-		wgui.text(x + 132, y, "O: " ..  (Memory.Mario.FacingYaw + 32768) % 65536) --wgui.text(x + 45, y, "Opposite (Facing): " ..  (Memory.Mario.FacingYaw + 32768) % 65536)
-		wgui.text(x + 132, y + 15, "O: " ..  (Memory.Mario.IntendedYaw + 32768) % 65536)--wgui.text(x, y + 45, "Opposite (Intended): " ..  (Memory.Mario.IntendedYaw + 32768) % 65536)
+		wgui.text(x + 140, y, "O: " ..  (Memory.Mario.FacingYaw + 32768) % 65536) --wgui.text(x + 45, y, "Opposite (Facing): " ..  (Memory.Mario.FacingYaw + 32768) % 65536)
+		wgui.text(x + 140, y + 15, "O: " ..  (Memory.Mario.IntendedYaw + 32768) % 65536)--wgui.text(x, y + 45, "Opposite (Intended): " ..  (Memory.Mario.IntendedYaw + 32768) % 65536)
 	end
 end
 
@@ -131,9 +134,17 @@ function Drawing.drawAnalogStick(x, y)
 	wgui.ellipse(x-4 + Joypad.input.X/2,y-4 - Joypad.input.Y/2,x+4 + Joypad.input.X/2,y+4 - Joypad.input.Y/2)
 	wgui.setcolor(Settings.Theme.Text)
 	wgui.setfont(10,"Courier","")
+	wgui.text(x - 45 - 2.5 * (string.len(Joypad.input.X)), y - 80, "x:" .. Joypad.input.X)
 	local stick_y = Joypad.input.Y == 0 and "0" or -Joypad.input.Y
-	wgui.text(x + 90 - 2.5 * (string.len(stick_y)), y + 4, "y:" .. stick_y)
-	wgui.text(x + 90 - 2.5 * (string.len(Joypad.input.X)), y - 14, "x:" .. Joypad.input.X)
+	wgui.text(x + 17 - 2.5 * (string.len(stick_y)), y - 80, "y:" .. stick_y)
+end
+
+function Drawing.drawArctanStrainData(x, y)
+	wgui.text(x, y, "E: " .. Settings.Layout.Button.strain_button.arctanexp)
+	wgui.text(x, y + 15, "R: " .. MoreMaths.Round(Settings.Layout.Button.strain_button.arctanr, 5))
+	wgui.text(x, y + 30, "D: " .. MoreMaths.Round(Settings.Layout.Button.strain_button.arctand, 5))
+	wgui.text(x, y + 45, "N: " .. MoreMaths.Round(Settings.Layout.Button.strain_button.arctann, 2))
+	wgui.text(x, y + 60, "S: " .. MoreMaths.Round(Settings.Layout.Button.strain_button.arctanstart + 1, 2))
 end
 
 function Drawing.drawMiscData(x, y)
@@ -159,15 +170,7 @@ function Drawing.drawMiscData(x, y)
 
 	wgui.text(x, y + 30, "XZ Movement: " .. MoreMaths.Round(Engine.GetDistMoved(), 6))
 
-	wgui.text(x, y + 120, "Action: " .. Engine.GetCurrentAction())
-
-	wgui.text(x + 172, y, "E: " .. Settings.Layout.Button.strain_button.arctanexp)
-	wgui.text(x + 132, y + 60, "R: " .. MoreMaths.Round(Settings.Layout.Button.strain_button.arctanr, 5))
-	wgui.text(x + 132, y + 75, "D: " .. MoreMaths.Round(Settings.Layout.Button.strain_button.arctand, 5))
-	wgui.text(x + 132, y + 90, "N: " .. MoreMaths.Round(Settings.Layout.Button.strain_button.arctann, 2))
-	wgui.text(x + 132, y + 105, "S: " .. MoreMaths.Round(Settings.Layout.Button.strain_button.arctanstart + 1, 2))
-
-	wgui.text(x, y + 136, "Read-write: ")
+	wgui.text(x, y + 120, "Read-write: ")
 	if emu.isreadonly() then 
 		readwritestatus = "disabled" 
 		wgui.setcolor(Settings.Theme.Text)
@@ -175,15 +178,26 @@ function Drawing.drawMiscData(x, y)
 		readwritestatus = "enabled"
 		wgui.setcolor(Settings.Theme.ReadWriteText)
 	end
-	wgui.text(x + 68, y + 136, readwritestatus)
-
+	wgui.text(x + 68, y + 120, readwritestatus)
 	wgui.setcolor(Settings.Theme.Text)
-	wgui.text(x, y + 220, "RNG Value: " .. Memory.RNGValue)
-	wgui.text(x, y + 235, "RNG Index: " .. get_index(Memory.RNGValue))
 
 	distmoved = Engine.GetTotalDistMoved()
 	if (Settings.Layout.Button.dist_button.enabled == false) then
 		distmoved = Settings.Layout.Button.dist_button.dist_moved_save
 	end
-	wgui.text(x, y + 280, "Moved Dist: " .. distmoved)
+	wgui.text(x, y + 172, "Dist from marker: " .. MoreMaths.Round(distmoved, 5))
+end
+
+function Drawing.drawRNGData(x,y)
+	wgui.text(x - 76, y, "Value:")
+	wgui.text(x - 7 * string.len(Memory.RNGValue), y, Memory.RNGValue)
+	index = get_index(Memory.RNGValue)
+	wgui.text(x - 74, y + 15, "Index:")
+	wgui.text(x - 7 * string.len(index), y + 15, index)
+end
+
+function Drawing.drawAction(x, y)
+	wgui.text(x, y, "Action: ")
+	wgui.setfont(10,"Arial Bold","")
+	wgui.text(x + 45, y, Engine.GetCurrentAction())
 end

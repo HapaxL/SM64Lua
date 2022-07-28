@@ -24,30 +24,6 @@ end
 
 Buttons = {
 	{
-		name = "ignore y",
-		type = ButtonType.button,
-		text = Settings.Layout.Button.items[Settings.Layout.Button.IGNORE_Y],
-		box = {
-			Drawing.Screen.Width + 137,
-			565,
-			75,
-			20
-		},
-		enabled = function()
-			return true
-		end,
-		pressed = function()
-			return Settings.Layout.Button.dist_button.ignore_y == true
-		end,
-		onclick = function(self)
-			if (Settings.Layout.Button.dist_button.ignore_y == true) then
-				Settings.Layout.Button.dist_button.ignore_y = false
-			else
-				Settings.Layout.Button.dist_button.ignore_y = true
-			end
-		end
-	},
-	{
 		name = ".99",
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.POINT_99],
@@ -77,9 +53,9 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.ALWAYS_99],
 		box = {
-			Drawing.Screen.Width + 129,
+			Drawing.Screen.Width + 130,
 			5,
-			56,
+			54,
 			22
 		},
 		enabled = function()
@@ -103,7 +79,7 @@ Buttons = {
 		box = {
 			Drawing.Screen.Width + 130,
 			31,
-			40,
+			39,
 			22
 		},
 		enabled = function()
@@ -177,8 +153,8 @@ Buttons = {
 		box = {
 			Drawing.Screen.Width + 130,
 			83,
-			71,
-			20
+			51,
+			22
 		},
 		enabled = function()
 			return true
@@ -201,10 +177,10 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.REVERSE_ARCTAN],
 		box = {
-			Drawing.Screen.Width + 202,
+			Drawing.Screen.Width + 182,
 			83,
-			15,
-			20
+			35,
+			22
 		},
 		enabled = function()
 			return true
@@ -225,8 +201,8 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.INCARCR],
 		box = {
-			Drawing.Screen.Width + 126,
-			370,
+			Drawing.Screen.Width + 135,
+			213,
 			10,
 			13
 		},
@@ -245,8 +221,8 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.DECARCR],
 		box = {
-			Drawing.Screen.Width + 137,
-			370,
+			Drawing.Screen.Width + 146,
+			213,
 			10,
 			13
 		},
@@ -265,8 +241,8 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.INCARCD],
 		box = {
-			Drawing.Screen.Width + 126,
-			385,
+			Drawing.Screen.Width + 135,
+			228,
 			10,
 			13
 		},
@@ -285,8 +261,8 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.DECARCD],
 		box = {
-			Drawing.Screen.Width + 137,
-			385,
+			Drawing.Screen.Width + 146,
+			228,
 			10,
 			13
 		},
@@ -305,8 +281,8 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.INCARCN],
 		box = {
-			Drawing.Screen.Width + 126,
-			400,
+			Drawing.Screen.Width + 135,
+			243,
 			10,
 			13
 		},
@@ -325,8 +301,8 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.DECARCN],
 		box = {
-			Drawing.Screen.Width + 137,
-			400,
+			Drawing.Screen.Width + 146,
+			243,
 			10,
 			13
 		},
@@ -345,8 +321,8 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.INCARCS],
 		box = {
-			Drawing.Screen.Width + 126,
-			415,
+			Drawing.Screen.Width + 135,
+			258,
 			10,
 			13
 		},
@@ -365,8 +341,8 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.DECARCS],
 		box = {
-			Drawing.Screen.Width + 137,
-			415,
+			Drawing.Screen.Width + 146,
+			258,
 			10,
 			13
 		},
@@ -385,8 +361,8 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.INCARCE],
 		box = {
-			Drawing.Screen.Width + 165,
-			310,
+			Drawing.Screen.Width + 135,
+			198,
 			10,
 			13
 		},
@@ -405,8 +381,8 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.DECARCE],
 		box = {
-			Drawing.Screen.Width + 176,
-			310,
+			Drawing.Screen.Width + 146,
+			198,
 			10,
 			13
 		},
@@ -426,8 +402,8 @@ Buttons = {
 		text = Settings.Layout.Button.items[Settings.Layout.Button.DIST_MOVED],
 		box = {
 			Drawing.Screen.Width + 12,
-			565,
-			120,
+			460,
+			80,
 			20
 		},
 		enabled = function()
@@ -449,6 +425,30 @@ Buttons = {
 		end
 	},
 	{
+		name = "ignore y",
+		type = ButtonType.button,
+		text = Settings.Layout.Button.items[Settings.Layout.Button.IGNORE_Y],
+		box = {
+			Drawing.Screen.Width + 92,
+			460,
+			40,
+			20
+		},
+		enabled = function()
+			return true
+		end,
+		pressed = function()
+			return Settings.Layout.Button.dist_button.ignore_y == true
+		end,
+		onclick = function(self)
+			if (Settings.Layout.Button.dist_button.ignore_y == true) then
+				Settings.Layout.Button.dist_button.ignore_y = false
+			else
+				Settings.Layout.Button.dist_button.ignore_y = true
+			end
+		end
+	},
+	{
 		name = "disabled",
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.DISABLED],
@@ -456,7 +456,7 @@ Buttons = {
 			Drawing.Screen.Width + 5,
 			5,
 			120,
-			30
+			22
 		},
 		enabled = function()
 			return true
@@ -474,9 +474,9 @@ Buttons = {
 		text = Settings.Layout.Button.items[Settings.Layout.Button.MATCH_YAW],
 		box = {
 			Drawing.Screen.Width + 5,
-			40,
+			31,
 			120,
-			30
+			22
 		},
 		enabled = function()
 			return true
@@ -494,9 +494,9 @@ Buttons = {
 		text = Settings.Layout.Button.items[Settings.Layout.Button.REVERSE_ANGLE],
 		box = {
 			Drawing.Screen.Width + 5,
-			75,
+			57,
 			120,
-			30
+			22
 		},
 		enabled = function()
 			return true
@@ -514,9 +514,9 @@ Buttons = {
 		text = Settings.Layout.Button.items[Settings.Layout.Button.MATCH_ANGLE],
 		box = {
 			Drawing.Screen.Width + 5,
-			110,
+			83,
 			120,
-			30
+			22
 		},
 		enabled = function()
 			return true
@@ -533,10 +533,10 @@ Buttons = {
 		type = ButtonType.textArea,
 		inputSize = 5,
 		box = {
-			Drawing.Screen.Width + 131,
-			110,
+			Drawing.Screen.Width + 4,
+			108,
 			85,
-			30
+			22
 		},
 		value = function()
 			return Settings.goalAngle
@@ -595,10 +595,10 @@ Buttons = {
 		type = ButtonType.textArea,
 		inputSize = 3,
 		box = {
-			Drawing.Screen.Width + 154,
-			165,
+			Drawing.Screen.Width + 167,
+			108,
 			50,
-			25
+			22
 		},
 		value = function()
 			return Settings.goalMag
@@ -663,9 +663,9 @@ Buttons = {
 		text = Settings.Layout.Button.items[Settings.Layout.Button.MAG48],
 		box = {
 			Drawing.Screen.Width + 142,
-			230,
+			134,
 			75,
-			14
+			18
 		},
 		enabled = function()
 			return true
@@ -684,9 +684,9 @@ Buttons = {
 		text = Settings.Layout.Button.items[Settings.Layout.Button.RESET_MAG],
 		box = {
 			Drawing.Screen.Width + 142,
-			262,
+			174,
 			75,
-			14
+			18
 		},
 		enabled = function()
 			return true
@@ -704,9 +704,9 @@ Buttons = {
 		text = Settings.Layout.Button.items[Settings.Layout.Button.HIGH_MAG],
 		box = {
 			Drawing.Screen.Width + 142,
-			246,
+			154,
 			75,
-			14
+			18
 		},
 		enabled = function()
 			return true
@@ -751,10 +751,10 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.SET_RNG],
 		box = {
-			Drawing.Screen.Width + 12,
-			494,
-			84,
-			30
+			Drawing.Screen.Width + 133,
+			378,
+			57,
+			20
 		},
 		enabled = function()
 			return true
@@ -775,10 +775,10 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.USE_VALUE],
 		box = {
-			Drawing.Screen.Width + 91,
-			494,
-			17,
-			30
+			Drawing.Screen.Width + 190,
+			378,
+			14,
+			20
 		},
 		enabled = function()
 			return true
@@ -800,10 +800,10 @@ Buttons = {
 		type = ButtonType.button,
 		text = Settings.Layout.Button.items[Settings.Layout.Button.USE_INDEX],
 		box = {
-			Drawing.Screen.Width + 108,
-			494,
-			17,
-			30
+			Drawing.Screen.Width + 204,
+			378,
+			13,
+			20
 		},
 		enabled = function()
 			return true
@@ -825,10 +825,10 @@ Buttons = {
 		type = ButtonType.textArea,
 		inputSize = 5,
 		box = {
-			Drawing.Screen.Width + 131,
-			494,
+			Drawing.Screen.Width + 132,
+			401,
 			85,
-			30
+			22
 		},
 		value = function()
 			return Settings.setRNG
@@ -889,9 +889,9 @@ Buttons = {
 		type = ButtonType.button,
 		text = "",
 		box = {
-			Drawing.Screen.Width + 16,
-			465,
-			95,
+			Drawing.Screen.Width + 142,
+			460,
+			75,
 			20
 		},
 		enabled = function()
@@ -920,7 +920,7 @@ Buttons = {
 
 function Buttons.getGhostButtonText()
 	if recording_ghost then
-		return "End Recording"
+		return " End Rec "
 	else
 		return Settings.Layout.Button.items[31]
 	end

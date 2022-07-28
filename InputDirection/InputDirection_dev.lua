@@ -25,6 +25,7 @@ dofile (PATH .. "Swimming.lua")
 dofile (PATH .. "RNGToIndex.lua")
 dofile (PATH .. "IndexToRNG.lua")
 dofile (PATH .. "recordghost.lua")
+dofile (PATH .. "Config.lua")
 
 Settings.Theme = Settings.Themes.Light -- Settings.Themes.Dark for dark mode
 Settings.ShowEffectiveAngles = false -- show angles floored to the nearest multiple of 16
