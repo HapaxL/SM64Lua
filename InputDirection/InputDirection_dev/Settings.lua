@@ -225,6 +225,38 @@ Settings.Themes = {
 			OutsideOutline = "#000000",
 			Outline = "#888888"
 		}
+	},
+	ChromePurple = { -- Theme by Hapax
+		Text = "#FFFFFF",
+		ReadWriteText = "#DD55FF",
+		Background = "#140A1E",
+		Button = {
+			Text = "#000000",
+			InvertedText = "#000000",
+			Outline = "#000000",
+			Top = "#C0A0D0",
+			Bottom = "#9080B0",
+			Pressed = {
+				Top = "#FFDD55",
+				Bottom = "#CC9944"
+			}
+		},
+		Joystick = {
+			Circle = "#444444",
+			Background = "#222222",
+			MagBoundary = "#776688",
+			Crosshair = "#FFFFFF",
+			Stick = "#EEBB00",
+			Dot = "#EEBB00",
+		},
+		InputField = {
+			EditingText = "#000000",
+			Editing = "#EEBB00",
+			Enabled = "#222222",
+			Disabled = "#CCCCCC",
+			OutsideOutline = "#000000",
+			Outline = "#CCCCCC"
+		}
 	}
 }
 
