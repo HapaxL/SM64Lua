@@ -1,3 +1,11 @@
+**Now compatible with 800x600 Mupen resolution!!** with room to spare!
+
+**Also allows you to switch between several input configurations** with the numbered buttons at the bottom, as well as reset the current configuration.
+
+**Also with a new color theme!!!!!!!**
+
+![ChromePurple](https://cdn.discordapp.com/attachments/335521298337890314/1002113117075030056/unknown.png)
+
 # SM64 Input Direction Lua
 
 The all-in-one lua script that lets you precisely control your inputs - regardless of camera angles! Simply download these files and [mupen64-rr-lua](https://github.com/mkdasher/mupen64-rr-lua-/releases), then run `InputDirection_dev.lua` to get started.

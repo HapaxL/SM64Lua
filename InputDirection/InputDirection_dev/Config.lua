@@ -29,15 +29,7 @@ function Config.new()
 		set_rng_mode_index = true,
 		swimming = false,
 	}
-end			
-			
-			
-			
-			
-			
-			
-			
-			
+end				
 
 function Config.makeSet(count)
 	configs = {}
@@ -138,7 +130,6 @@ for id, config in ipairs(Config.Configs) do
 			return true
 		end,
 		pressed = function()
-			-- print(Config.SelectedConfig .. " == " .. id)
 			return Config.SelectedConfig == id
 		end,
 		onclick = function(self)
